@@ -24,38 +24,29 @@
 
       console.log("interactive", task)
 
-      // if task does not contain the string "towel"
-      if (task.indexOf("towel") == -1) {
-        var video = document.getElementById("interactive-video");
-        video.src = "media/videos/" + 
-                    task + 
-                    ".mp4"
-        video.play();
+      var video = document.getElementById("interactive-video1");
+      video.src = "assets/h3_vids/goal" + task + ".mp4";
+      video.play();
 
-        var html = document.getElementById("interactive-html-1");
-        html.src = "media/interactive/" + 
-                    task + 
-                    ".html"
+      var video = document.getElementById("interactive-video2");
+      video.src = "assets/h3_vids/sketch" + task + ".mp4";
+      video.play();
 
-        // hide the second iframe container
-        var iframeContainer2 = document.getElementById("second-iframe-container");
-        iframeContainer2.style.display = "none";
-      } else {
-        var video = document.getElementById("interactive-video");
-        video.src = "media/videos/hang-towel.mp4"
-        video.play();
+    }
 
-        var html1 = document.getElementById("interactive-html-1");
-        html1.src = "media/interactive/hang-towel-1.html"
+    function updateInteractiveSemantic() {
+      var task = document.getElementById("interative-semantic-menu").value;
 
-        // show and set the source for the second iframe
-        var html2 = document.getElementById("interactive-html-2");
-        html2.src = "media/interactive/hang-towel-2.html"
+      console.log("interactive", task)
 
-        // show the second iframe container
-        var iframeContainer2 = document.getElementById("second-iframe-container");
-        iframeContainer2.style.display = "block";
-      }
+      var video = document.getElementById("interactive-video-semantic-1");
+      video.src = "assets/h4_vids/" + task + "/semantic.mp4";
+      video.play();
+
+      var video = document.getElementById("interactive-video-semantic-2");
+      video.src = "assets/h4_vids/" + task + "/spatial.mp4";
+      video.play();
+
     }
 
 
@@ -94,13 +85,447 @@
   </div>
 </section>
 
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Natural language and images are commonly used as goal representations in goal-conditioned imitation learning (IL). However, natural language can be ambiguous and images can be over-specified. In this work, we propose hand-drawn sketches as a modality for goal specification in visual imitation learning. Sketches are easy for users to provide on the fly like language, but similar to images they can also help a downstream policy to be spatially-aware and even go beyond images to disambiguate task-relevant from task-irrelevant objects. We present RT-Sketch, a goal-conditioned policy for manipulation that takes a hand-drawn sketch of the desired scene as input, and outputs actions. We train RT-Sketch on a dataset of paired trajectories and corresponding synthetically generated goal sketches. We evaluate this approach on six manipulation skills involving tabletop object rearrangements on an articulated countertop. Experimentally we find that RT-Sketch is able to perform on a similar level to image or language-conditioned agents in straightforward settings, while achieving greater robustness when language goals are ambiguous or visual distractors are present. Additionally, we show that RT-Sketch has the capacity to interpret and act upon sketches with varied levels of specificity, ranging from minimal line drawings to detailed, colored drawings. 
+          </p>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <!--/ Abstract. -->
+
+  </div>
+
+</section>
+
+
+<section class="hero teaser">
+  <div class="container is-fullhd">
+    <div class="hero-body">
+      <div class="container">
+        <h2 class="subtitle has-text-centered">
+        RT-Sketch is a <b>sketch-to-action</b> behavior-cloning agent which is<br>
+        </h2>
+        <h2 class="subtitle">
+        <b>(1)</b> On par with image-conditioned and language-conditioned agents for <b>tabletop / countertop manipulation</b><br>
+        <b>(2)</b> Compatible with sketches of <b>varied detail</b><br>
+        <b>(3)</b> Robust to <b>visual distractors</b><br>
+        <b>(4)</b> Unaffected by <b>semantic ambiguities</b>
+        <br>
+        </h2>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-widescreen">
+
+    <div class="rows">
+      <h2 class="title is-3">Tabletop / Countertop Manipulation</h2>
+      
+      <p class="content has-text-justified">
+        Description of RT-1 benchmark here
+      </p>
+      
+      <div class="columns">
+        <div class="column has-text-centered">
+          <video id="dist1"
+            controls
+            muted
+            autoplay
+            loop
+            width="100%">
+            <source src="assets/h1_vids/move_near.mp4" 
+            type="video/mp4">
+          </video>
+          <h3 class="title is-5">Move Near Skill</h3>
+        </div>
+
+      <div class="columns">
+        <div class="column has-text-centered">
+          <video id="dist2"
+            controls
+            muted
+            autoplay
+            loop
+            width="85%">
+            <source src="assets/h1_vids/pick_drawer.mp4" 
+            type="video/mp4">
+          </video>
+          <h3 class="title is-5">Pick Drawer</h3>
+        </div>
+    
+    </div>
+
+    
+    </div>
+      <div class="columns">
+        <div class="column has-text-centered">
+          <video id="dist1"
+            controls
+            muted
+            autoplay
+            loop
+            width="100%">
+            <source src="assets/h1_vids/drawer_open.mp4" 
+            type="video/mp4">
+          </video>
+          <h3 class="title is-5">Drawer Open</h3>
+        </div>
+
+      <div class="columns">
+        <div class="column has-text-centered">
+          <video id="dist2"
+            controls
+            muted
+            autoplay
+            loop
+            width="85%">
+            <source src="assets/h1_vids/drawer_close.mp4" 
+            type="video/mp4">
+          </video>
+          <h3 class="title is-5">Drawer Close</h3>
+        </div>
+     </div>
+
+    </div>
+      <div class="columns">
+        <div class="column has-text-centered">
+          <video id="dist1"
+            controls
+            muted
+            autoplay
+            loop
+            width="100%">
+            <source src="assets/h1_vids/knock.mp4" 
+            type="video/mp4">
+          </video>
+          <h3 class="title is-5">Knock</h3>
+        </div>
+
+      <div class="columns">
+        <div class="column has-text-centered">
+          <video id="dist2"
+            controls
+            muted
+            autoplay
+            loop
+            width="85%">
+            <source src="assets/h1_vids/upright.mp4" 
+            type="video/mp4">
+          </video>
+          <h3 class="title is-5">Upright</h3>
+        </div>
+     </div>
+
+</section>
+
+<section class="section">
+  <div class="container is-max-widescreen">
+
+    <div class="rows">
+      <h2 class="title is-3">Robustness to Sketch Detail</h2>
+      
+      <p class="content has-text-justified">
+        Description of H2 here
+      </p>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+
+    <div class="container is-fullhd">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h3 class="title is-5">Move Near Skill</h3>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="assets/h2_vids/blob1_movenear.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+       <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="assets/h2_vids/line1_movenear.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+       <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="assets/h2_vids/colored1_movenear.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+       <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="assets/h2_vids/edge1_movenear.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="assets/h2_vids/blob3_movenear.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+       <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="assets/h2_vids/line3_movenear.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+       <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="assets/h2_vids/colored3_movenear.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+       <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="assets/h2_vids/edge3_movenear.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+
+    <div class="container is-fullhd">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h3 class="title is-5">Drawer Open Skill</h3>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="assets/h2_vids/blob1_draweropen.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+       <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="assets/h2_vids/line1_draweropen.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+       <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="assets/h2_vids/colored1_draweropen.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+       <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="assets/h2_vids/edge1_draweropen.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="assets/h2_vids/blob2_draweropen.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+       <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="assets/h2_vids/line2_draweropen.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+       <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="assets/h2_vids/colored2_draweropen.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+       <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="assets/h2_vids/edge2_draweropen.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-widescreen">
+
+    <div class="rows">
+
+    <!-- Animation. -->
+    <div class="rows is-centered ">
+      <div class="row is-full-width">
+        <h2 class="title is-3">Robustness to Visual Distractors</h2>
+
+        <div class="columns">
+          <div class="column has-text-centered">
+
+            Visualize Trial
+            <div class="select is-small is-rounded">     
+              <select id="interative-menu" onchange="updateInteractive()">
+              <option value="1" selected="selected">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+              </select>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="columns">
+          <div class="column is-half has-text-centered">
+            <p style="text-align:center;">
+              <video id="interactive-video1" width="100%" height="100%" controls autoplay loop muted>
+                <source src="assets/h3_vids/goal1.mp4" type="video/mp4">
+              </video>
+            </p>
+            <h3 class="title is-5">RT-Goal Image</h3>
+          </div>
+
+          <div class="column is-half has-text-centered">
+            <p style="text-align:center;">
+              <video id="interactive-video2" width="100%" height="100%" controls autoplay loop muted>
+                <source src="assets/h3_vids/sketch1.mp4" type="video/mp4">
+              </video>
+            </p>
+            <h3 class="title is-5">RT-Sketch</h3>
+          </div>
+
+        </div>
+        
+        
+        
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-widescreen">
+
+    <div class="rows">
+
+    <!-- Animation. -->
+    <div class="rows is-centered ">
+      <div class="row is-full-width">
+        <h2 class="title is-3">Semantic Ambiguity</h2>
+
+        <div class="columns">
+          <div class="column has-text-centered">
+
+            Visualize Trial
+            <div class="select is-small is-rounded">     
+              <select id="interative-semantic-menu" onchange="updateInteractiveSemantic()">
+              <option value="pick-orange-and-place-in-top-drawer-1" selected="selected">"pick orange and place in top drawer" (1)</option>
+              <option value="pick-orange-and-place-in-top-drawer-2">"pick orange and place in top drawer" (2)</option>
+              <option value="pick-orange-and-place-in-top-drawer-3">"pick orange and place in top drawer" (3)</option>
+              <option value="move-apple-to-pile">"move the apple to a pile"</option>
+              <option value="move-apple-where-belongs">"move the apple where it belongs"</option>
+              <option value="rainbow">"complete the rainbow"</option>
+              <option value="left">"move everything to the left"</option>
+              <option value="smiley">"make a smiley face"</option>
+              <option value="frowny">"make a frowny face"</option>
+              <option value="nose">"move the orange to the middle"</option>
+              </select>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="columns">
+          <div class="column is-half has-text-centered">
+            <p style="text-align:center;">
+              <video id="interactive-video-semantic-1" width="50%" height="50%" controls autoplay loop muted>
+                <source src="assets/h4_vids/pick-orange-and-place-in-top-drawer-1/semantic.mp4" type="video/mp4">
+              </video>
+            </p>
+            <h3 class="title is-5">RT-1</h3>
+          </div>
+
+          <div class="column is-half has-text-centered">
+            <p style="text-align:center;">
+              <video id="interactive-video-semantic-2" width="100%" height="100%" controls autoplay loop muted>
+                <source src="assets/h4_vids/pick-orange-and-place-in-top-drawer-1/spatial.mp4" type="video/mp4">
+              </video>
+            </p>
+            <h3 class="title is-5">RT-Sketch</h3>
+          </div>
+
+        </div>
+        
+    </div>
+  </div>
+</section>
+
+
 <footer class="footer">
   <div class="container">
     <div class="columns is-centered">
       <div class="column">
         <div class="content has-text-centered">
           <p>
-            Website template borrowed from <a href="https://github.com/nerfies/nerfies.github.io">NeRFies</a> and <a href="https://peract.github.io/">PerAct</a>. 
+            Website template borrowed from <a href="https://github.com/nerfies/nerfies.github.io">NeRFies</a> and <a href="https://peract.github.io/">PerAct</a> and <a href="https://voxposer.github.io">VoxPoser</a>. 
           </p>
         </div>
       </div>
