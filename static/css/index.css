@@ -1,5 +1,5 @@
 body {
-  font-family: 'Noto Sans', sans-serif;
+  font-family: 'Google Sans', sans-serif;
 }
 
 
@@ -137,6 +137,10 @@ body {
 }
 
 .results-carousel video {
+  margin: 0;
+}
+
+.results-carousel figure {
   margin: 0;
 }
 

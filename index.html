@@ -85,6 +85,23 @@
   </div>
 </section>
 
+<section class="hero teaser">
+  <div class="container is-fullhd">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-vcentered  is-centered">
+          <video id="teaser" autoplay muted loop height="70%" width="70%">
+            <source src="assets/rt_sketch_teaser.mp4"
+                    type="video/mp4">
+          </video>
+          </br>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 <section class="section">
   <div class="container is-max-desktop">
     <!-- Abstract. -->
@@ -108,6 +125,68 @@
 
 
 <section class="hero teaser">
+  <div class="container is-max-widescreen">
+
+    <div class="rows">
+
+
+    <!-- Animation. -->
+    <div class="rows is-centered ">
+      <div class="row is-full-width">
+        <h2 class="title is-3">Dataset Generation & Training</span></h2>
+        </br>
+        <div class="rows is-centered">
+          <div class="columns is-centered has-text-centered">
+            <img src="assets/gan_vis/00002.png" style="width: 25%; height: auto;"/>
+            <img src="assets/gan_vis/00003.png" style="width: 25%; height: auto;"/>
+            <img src="assets/gan_vis/00004.png" style="width: 25%; height: auto;"/>
+            <img src="assets/gan_vis/00005.png" style="width: 25%; height: auto;"/>
+          </div>
+          <div class="columns is-centered has-text-centered">
+            <img src="assets/gan_vis/00009.png" style="width: 25%; height: auto;"/>
+            <img src="assets/gan_vis/00011.png" style="width: 25%; height: auto;"/>
+            <img src="assets/gan_vis/00015.png" style="width: 25%; height: auto;"/>
+            <img src="assets/gan_vis/00012.png" style="width: 25%; height: auto;"/>
+          </div>
+          <div class="columns is-centered has-text-centered">
+            <img src="assets/gan_vis/00016.png" style="width: 25%; height: auto;"/>
+            <img src="assets/gan_vis/00006.png" style="width: 25%; height: auto;"/>
+            <img src="assets/gan_vis/00007.png" style="width: 25%; height: auto;"/>
+            <img src="assets/gan_vis/00018.png" style="width: 25%; height: auto;"/>
+          </div>
+        </div>
+        </br>
+        </br>
+          <p class="content has-text-justified">
+          Training a sketch-conditioned IL policy requires collecting a dataset of trajectories paired with sketches representing the goal state. Since this is infeasible to collect manually at scale, we first train an image-to-sketch GAN translation network which automatically converts images into sketches. We additionally augment these generated sketches with various colorspace and affine transforms, to simulate variations in hand-drawn sketches. Using this network, we automatically convert hindsight-relabeled goal images from robot trajectories into goal sketches. The results are visualized above.
+          </p>
+        </br>
+          <img src="assets/model_architecture.png" class="interpolation-image" style="width: 100%; height: auto;"/>
+        </br>
+        </br>
+          <p class="content has-text-justified">
+            To train RT-Sketch, we sample an episode from a pre-recorded dataset of robot trajectories. Treating the last observation in the trajectory as a goal image, we convert this goal image to either a GAN-generated goal sketch, a colorized sketch, or an edge-detected image. We concatenate this goal representation with the history of RGB observations in the trajectory. Finally, the concatenated inputs serve as input to RT-Sketch, which outputs tokenized actions. The purpose of training on the varied input types is to encourage the policy to afford different levels in input sketch specificity.
+          </p>
+        </br>
+        </br>
+
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Results</h2>
+      </div>
+    </div>
+  </div>
   <div class="container is-fullhd">
     <div class="hero-body">
       <div class="container">
@@ -135,7 +214,7 @@
       <h2 class="title is-3">Tabletop / Countertop Manipulation</h2>
       
       <p class="content has-text-justified">
-        Description of RT-1 benchmark here
+      For straightforward manipulation tasks such as those in the RT-1 benchmark, RT-Sketch performs on par with language-conditioned and image-conditioned agents for nearly all skills: 
       </p>
       
       <div class="columns">
@@ -238,7 +317,7 @@
       <h2 class="title is-3">Robustness to Sketch Detail</h2>
       
       <p class="content has-text-justified">
-        Description of H2 here
+      RT-Sketch further affords input sketches with varied levels of detail, ranging from free-hand sketches to colorized sketches, without a performance drop compared to upper-bound representations like edge-detected images.
       </p>
     </div>
   </div>
@@ -410,7 +489,10 @@
     <!-- Animation. -->
     <div class="rows is-centered ">
       <div class="row is-full-width">
-        <h2 class="title is-3">Robustness to Visual Distractors</h2>
+        <h2 class="title is-3">Emergent Capabilities: Robustness to Visual Distractors</h2>
+      <p class="content has-text-justified">
+      Although RT-Sketch is only trained on distractor-free settings, we find that it is able to handle visual distractors in the scene well, while goal-image conditioned policies are easily thrown out of distribution and fail to make task progress. This is likely due to the minimal nature of sketches, which inherently helps the policy attend to only task-relevant objects.
+      </p>
 
         <div class="columns">
           <div class="column has-text-centered">
@@ -470,6 +552,10 @@
     <div class="rows is-centered ">
       <div class="row is-full-width">
         <h2 class="title is-3">Semantic Ambiguity</h2>
+      <p class="content has-text-justified">
+      While convenient, language instructions can often be underspecified, ambiguous, or may require lengthy descriptions to communicate task goals effectively. These issues do not arise with sketches, which offer a minimal yet expressive means of conveying goals. We find that RT-Sketch is performant in scenarios where language can be ambiguous or too out-of-distribution for policies like RT-1 to handle.
+      
+      </p>
 
         <div class="columns">
           <div class="column has-text-centered">
@@ -514,6 +600,74 @@
 
         </div>
         
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-widescreen">
+
+    <div class="rows">
+    <!-- Animation. -->
+    <div class="rows is-centered ">
+      <div class="row is-full-width is-centered">
+        <h2 class="title is-3">Quantitative Results</span></h2>
+        <p class="content has-text-justified">
+        We measure performance of RT-Sketch compared to language-conditioned (RT-1) and goal image-conditioned (RT-Goal Image) policies in terms of 2 quantitative metrics: (1) human-provided Likert ratings on goal alignment, and (2) pixelwise error between (manually labeled) achieved object positions and ground truth object keypoints from reference goal images. RT-Sketch performs comparably to both in straightforward tasks (H1), can handle different levels of sketch detail with minimal performance drop (H2), and is favorable when visual distractors are present (H3) or when language would be ambiguous (H4). 
+        <br>
+        <br>
+        <h3 class="title is-5">Likert Ratings</h3>
+        </p>
+        <img src="assets/h1234.png" style="width: 100%; height: auto;"/>
+        <p class="content has-text-justified">
+        <br>
+        <br>
+        <h3 class="title is-5">Pixelwise Error</h3>
+        </p>
+      </div>
+    </div>
+    </div>
+    <div class="columns is-centered has-text-centered">
+        <img src="assets/h1_table.png" style="width: 80%; height: auto;"/>
+    </div>
+    <div class="columns is-centered has-text-centered">
+        <img src="assets/h2_table.png" style="width: 75%; height: auto;"/>
+    </div>
+   </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-widescreen">
+
+    <div class="rows">
+      <h2 class="title is-3">Failure Modes</h2>
+      <p class="content has-text-justified">
+      RT-Sketch's main failure modes are imprecision and moving the wrong object. We see the first failure mode typically when RT-Sketch positions an object correctly but fails to reorient it (common in the upright task). The second failure mode is most apparent in the case of visual distractor objects, where RT-Sketch mistakenly picks up the wrong object and puts in the appropriate place. We posit that both of these failures are due to RT-Sketch being trained on GAN-generated sketches, which occasionally do not preserve geometric details well, leading the policy to not pay close attention to objects or object orientations.
+      </p>
+        <div class="rows is-centered">
+            <h3 class="title is-4">Imprecision</h3>
+          <div class="columns is-centered has-text-centered">
+            <video id="imprecise1" autoplay muted loop height="50%" width="50%">
+              <source src="assets/imprecise1.mp4"
+                      type="video/mp4">
+            </video>
+            <video id="imprecise2" autoplay muted loop height="50%" width="50%">
+              <source src="assets/imprecise2.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+          <br>
+            <h3 class="title is-4">Wrong Object</h3>
+          <div class="columns is-centered has-text-centered">
+            <video id="wrongobject1" autoplay muted loop height="50%" width="50%">
+              <source src="assets/wrong_obj1.mp4"
+                      type="video/mp4">
+            </video>
+            <video id="wrongobject2" autoplay muted loop height="50%" width="50%">
+              <source src="assets/wrong_obj2.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
     </div>
   </div>
 </section>
