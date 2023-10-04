@@ -137,22 +137,40 @@
         </br>
         <div class="rows is-centered">
           <div class="columns is-centered has-text-centered">
-            <img src="assets/gan_vis/00002.png" style="width: 25%; height: auto;"/>
-            <img src="assets/gan_vis/00003.png" style="width: 25%; height: auto;"/>
-            <img src="assets/gan_vis/00004.png" style="width: 25%; height: auto;"/>
-            <img src="assets/gan_vis/00005.png" style="width: 25%; height: auto;"/>
+            <div class="column"><h3 class="title is-5">GAN Output</h3></div>
+            <div class="column"><h3 class="title is-5">+ Thickness Augmentation</h3></div>
+            <div class="column"><h3 class="title is-5">+ Color Augmentation</h3></div>
+            <div class="column"><h3 class="title is-5">+ Affine Augmentation</h3></div>
           </div>
           <div class="columns is-centered has-text-centered">
-            <img src="assets/gan_vis/00009.png" style="width: 25%; height: auto;"/>
-            <img src="assets/gan_vis/00011.png" style="width: 25%; height: auto;"/>
-            <img src="assets/gan_vis/00015.png" style="width: 25%; height: auto;"/>
-            <img src="assets/gan_vis/00012.png" style="width: 25%; height: auto;"/>
+            <img src="assets/sketch/00018.png" style="width: 25%; height: auto;"/>
+            <img src="assets/sketch_thickness/00018.png" style="width: 25%; height: auto;"/>
+            <img src="assets/sketch_color/00018.png" style="width: 25%; height: auto;"/>
+            <img src="assets/sketch_all/00018.png" style="width: 25%; height: auto;"/>
           </div>
           <div class="columns is-centered has-text-centered">
-            <img src="assets/gan_vis/00016.png" style="width: 25%; height: auto;"/>
-            <img src="assets/gan_vis/00006.png" style="width: 25%; height: auto;"/>
-            <img src="assets/gan_vis/00007.png" style="width: 25%; height: auto;"/>
-            <img src="assets/gan_vis/00018.png" style="width: 25%; height: auto;"/>
+            <img src="assets/sketch/00009.png" style="width: 25%; height: auto;"/>
+            <img src="assets/sketch_thickness/00009.png" style="width: 25%; height: auto;"/>
+            <img src="assets/sketch_color/00009.png" style="width: 25%; height: auto;"/>
+            <img src="assets/sketch_all/00009.png" style="width: 25%; height: auto;"/>
+          </div>
+          <div class="columns is-centered has-text-centered">
+            <img src="assets/sketch/00007.png" style="width: 25%; height: auto;"/>
+            <img src="assets/sketch_thickness/00007.png" style="width: 25%; height: auto;"/>
+            <img src="assets/sketch_color/00007.png" style="width: 25%; height: auto;"/>
+            <img src="assets/sketch_all/00007.png" style="width: 25%; height: auto;"/>
+          </div>
+          <div class="columns is-centered has-text-centered">
+            <img src="assets/sketch/00004.png" style="width: 25%; height: auto;"/>
+            <img src="assets/sketch_thickness/00004.png" style="width: 25%; height: auto;"/>
+            <img src="assets/sketch_color/00004.png" style="width: 25%; height: auto;"/>
+            <img src="assets/sketch_all/00004.png" style="width: 25%; height: auto;"/>
+          </div>
+          <div class="columns is-centered has-text-centered">
+            <img src="assets/sketch/00005.png" style="width: 25%; height: auto;"/>
+            <img src="assets/sketch_thickness/00005.png" style="width: 25%; height: auto;"/>
+            <img src="assets/sketch_color/00005.png" style="width: 25%; height: auto;"/>
+            <img src="assets/sketch_all/00005.png" style="width: 25%; height: auto;"/>
           </div>
         </div>
         </br>
@@ -177,7 +195,6 @@
   </div>
 </section>
 
-
 <section class="section">
   <div class="container is-max-desktop">
     <!-- Abstract. -->
@@ -193,12 +210,11 @@
         <h2 class="subtitle has-text-centered">
         RT-Sketch is a <b>sketch-to-action</b> behavior-cloning agent which is<br>
         </h2>
-        <h2 class="subtitle">
+        <h2 class="body">
         <b>(1)</b> On par with image-conditioned and language-conditioned agents for <b>tabletop / countertop manipulation</b><br>
         <b>(2)</b> Compatible with sketches of <b>varied detail</b><br>
         <b>(3)</b> Robust to <b>visual distractors</b><br>
         <b>(4)</b> Unaffected by <b>semantic ambiguities</b>
-        <br>
         </h2>
 
       </div>
@@ -494,6 +510,17 @@
       Although RT-Sketch is only trained on distractor-free settings, we find that it is able to handle visual distractors in the scene well, while goal-image conditioned policies are easily thrown out of distribution and fail to make task progress. This is likely due to the minimal nature of sketches, which inherently helps the policy attend to only task-relevant objects.
       </p>
 
+        
+        <div class="columns">
+          <div class="column has-text-centered">
+         <h2 class="title is-5 has-text-centered">
+         <br>
+         In terms of <b>perceived semantic</b> and <b>spatial alignment</b> on a 1-7 scale, RT-Sketch achieves a <br>
+         <font color="#fc9d03"><b>1.5X</b></font> and <font color="#fc9d03"><b>1.6X</b></font> improvement over a <font color="
+#2f8043">goal-image conditioned policy.</font><br>
+         </h2>
+        </div>
+        </div>
         <div class="columns">
           <div class="column has-text-centered">
 
@@ -518,6 +545,10 @@
 
         <div class="columns">
           <div class="column is-half has-text-centered">
+            <div class="columns is-centered has-text-centered">
+              <div class="column"><h3 class="title is-5">Goal Image</h3></div>
+              <div class="column"><h3 class="title is-5">Rollout</h3></div>
+            </div>
             <p style="text-align:center;">
               <video id="interactive-video1" width="100%" height="100%" controls autoplay loop muted>
                 <source src="assets/h3_vids/goal1.mp4" type="video/mp4">
@@ -527,6 +558,10 @@
           </div>
 
           <div class="column is-half has-text-centered">
+            <div class="columns is-centered has-text-centered">
+              <div class="column"><h3 class="title is-5">Goal Sketch</h3></div>
+              <div class="column"><h3 class="title is-5">Rollout</h3></div>
+            </div>
             <p style="text-align:center;">
               <video id="interactive-video2" width="100%" height="100%" controls autoplay loop muted>
                 <source src="assets/h3_vids/sketch1.mp4" type="video/mp4">
@@ -556,6 +591,15 @@
       While convenient, language instructions can often be underspecified, ambiguous, or may require lengthy descriptions to communicate task goals effectively. These issues do not arise with sketches, which offer a minimal yet expressive means of conveying goals. We find that RT-Sketch is performant in scenarios where language can be ambiguous or too out-of-distribution for policies like RT-1 to handle.
       
       </p>
+        <div class="columns">
+          <div class="column has-text-centered">
+         <h3 class="title is-5 has-text-centered">
+         <br>
+         In terms of <b>perceived semantic</b> and <b>spatial alignment</b> on a 1-7 scale, RT-Sketch achieves a <br>
+         <font color="#fc9d03"><b>2.4X</b></font> and <font color="#fc9d03"><b>2.8X</b></font> improvement over <font color="#4787b5">RT-1.</font><br>
+         </h3>
+        </div>
+        </div>
 
         <div class="columns">
           <div class="column has-text-centered">
@@ -581,6 +625,9 @@
 
         <div class="columns">
           <div class="column is-half has-text-centered">
+            <div class="columns is-centered has-text-centered">
+              <div class="column"><h3 class="title is-5">Language Goal + Rollout</h3></div>
+            </div>
             <p style="text-align:center;">
               <video id="interactive-video-semantic-1" width="50%" height="50%" controls autoplay loop muted>
                 <source src="assets/h4_vids/pick-orange-and-place-in-top-drawer-1/semantic.mp4" type="video/mp4">
@@ -590,6 +637,10 @@
           </div>
 
           <div class="column is-half has-text-centered">
+            <div class="columns is-centered has-text-centered">
+              <div class="column"><h3 class="title is-5">Goal Sketch</h3></div>
+              <div class="column"><h3 class="title is-5">Rollout</h3></div>
+            </div>
             <p style="text-align:center;">
               <video id="interactive-video-semantic-2" width="100%" height="100%" controls autoplay loop muted>
                 <source src="assets/h4_vids/pick-orange-and-place-in-top-drawer-1/spatial.mp4" type="video/mp4">
@@ -647,6 +698,10 @@
         <div class="rows is-centered">
             <h3 class="title is-4">Imprecision</h3>
           <div class="columns is-centered has-text-centered">
+            <div class="column"><p>Coke can moved to correct location, but not upright</p></div>
+            <div class="column"><p>Pepsi can moved to correct location, but not upright</p></div>
+          </div>
+          <div class="columns is-centered has-text-centered">
             <video id="imprecise1" autoplay muted loop height="50%" width="50%">
               <source src="assets/imprecise1.mp4"
                       type="video/mp4">
@@ -658,6 +713,10 @@
           </div>
           <br>
             <h3 class="title is-4">Wrong Object</h3>
+          <div class="columns is-centered has-text-centered">
+            <div class="column"><p>Apple moved instead of coke can</p></div>
+            <div class="column"><p>Coke can moved instead of fruit</p></div>
+          </div>
           <div class="columns is-centered has-text-centered">
             <video id="wrongobject1" autoplay muted loop height="50%" width="50%">
               <source src="assets/wrong_obj1.mp4"
