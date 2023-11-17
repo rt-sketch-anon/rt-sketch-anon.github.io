@@ -4,6 +4,15 @@ body {
   line-height: 25px;
 }
 
+#container {
+    display: flex;
+    align-items: center;
+}
+
+#container p {
+    margin-left: 1em;
+}
+
 
 .footer .icon-link {
     font-size: 25px;
