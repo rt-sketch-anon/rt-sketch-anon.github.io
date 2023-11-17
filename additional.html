@@ -488,10 +488,12 @@
       <p class="content has-text-justified">
       In this section, we highlight various image-to-sketch generation techniques we experimented with before pursuing our GAN-based approach.
     <br><br> Recently, two recent works, <a href="https://clipasso.github.io/clipasso/">CLIPAsso</a> and <a href="https://clipascene.github.io/CLIPascene/">CLIPAScene</a> by Vinker et. al explore methods for automatically generating a sketch from an image. These works pose sketch generation as inferring the parameters of  Bezier curves representing "strokes" in order to produce a generated sketch with maximal CLIP-similarity to a given input image. These methods perform a per-image optimization to generate a plausible sketch, rather than a global batched operation across many images, limiting their scalability. Additionally, they are fundamentally more concerned with producing high-quality, aesthetically pleasing sketches which capture a lot of extraneous details.
-    <br><br>We, on the other hand, care about producing a minimal but reasonable-quality sketch. The second technique we explore is trying the pre-trained <a href="https://mtli.github.io/sketch/">Photosketching GAN</a> on internet data of paired images and sketches. However, this model output does not capture object details well, likely due to not having been trained on robot observations, and contains irrelevant sketch details. Finally, by finetuning this PhotoSketching GAN on our own data, the outputs are much closer to real, hand-drawn human sketches that capture salient object details as minimally as possible.
-      </p>
+
       <p class="content has-text-centered">
        <img src="assets/image2sketch.png" class="interpolation-image" style="width: 100%; height: auto;"/>
+      </p>
+
+    We, on the other hand, care about producing a minimal but reasonable-quality sketch. The second technique we explore is trying the pre-trained <a href="https://mtli.github.io/sketch/">Photosketching GAN</a> on internet data of paired images and sketches. However, this model output does not capture object details well, likely due to not having been trained on robot observations, and contains irrelevant sketch details. Finally, by finetuning this PhotoSketching GAN on our own data, the outputs are much closer to real, hand-drawn human sketches that capture salient object details as minimally as possible.
       </p>
     </div>
   </div>
