@@ -494,36 +494,6 @@
   </div>
 </section>
 
-<section class="section" id="imperfect_sketches">
-  <div class="container is-max-widescreen">
-
-    <div class="rows">
-      <h3 class="title is-4">Imperfect Sketches</h3>
-      <p class="content has-text-justified">
-      Below, we visualize RT-Sketch's qualitative performance on rough, free-hand sketches drawn by a non-expert, untrained individual. Although rough freehand sketches are much harder for the policy to interpret compared to line sketches (above), RT-Sketch is still performant in 2 of the examples. We find that our tracing interface for collecting line sketches (above) allows the policy to generalize to different users still while controlling for stylistic variations from person-to-person.
-      </p>
-        <div class="rows is-centered">
-          <div class="columns is-centered has-text-centered">
-            <video id="freehand1" autoplay muted loop height="43%" width="43%">
-              <source src="assets/user_sketch_vids/freehand/00006_spatial.mp4"
-                      type="video/mp4">
-            </video>
-            <video id="freehand2" autoplay muted loop height="43%" width="43%">
-              <source src="assets/user_sketch_vids/freehand/00007_spatial.mp4">
-            </video>
-          </div>
-          <div class="columns is-centered has-text-centered">
-            <video id="freehand3" autoplay muted loop height="43%" width="43%">
-              <source src="assets/user_sketch_vids/freehand/00008_spatial.mp4">
-            </video>
-            <video id="freehand4" autoplay muted loop height="43%" width="43%">
-              <source src="assets/user_sketch_vids/freehand/00009_spatial.mp4">
-            </video>
-          </div>
-    </div>
-  </div>
-</section>
-
 
 <hr class="rounded">
 
@@ -533,13 +503,13 @@
       <h2 class="title is-3">Comparison to Alternative Image-to-Sketch Techniques</h2>
       <p class="content has-text-justified">
       In this section, we highlight various image-to-sketch generation techniques we experimented with before pursuing our GAN-based approach.
-    <br><br> Recently, two recent works, <a href="https://clipasso.github.io/clipasso/">CLIPAsso</a> and <a href="https://clipascene.github.io/CLIPascene/">CLIPAScene</a> by Vinker et. al explore methods for automatically generating a sketch from an image. These works pose sketch generation as inferring the parameters of  Bezier curves representing "strokes" in order to produce a generated sketch with maximal CLIP-similarity to a given input image. These methods perform a per-image optimization to generate a plausible sketch, rather than a global batched operation across many images, limiting their scalability. Additionally, they are fundamentally more concerned with producing high-quality, aesthetically pleasing sketches which capture a lot of extraneous details.
+    <br><br> Recently, two recent works, <a href="https://clipasso.github.io/clipasso/">CLIPasso</a> and <a href="https://clipascene.github.io/CLIPascene/">CLIPascene</a> by Vinker et. al explore methods for automatically generating a sketch from an image. These works pose sketch generation as inferring the parameters of  Bezier curves representing "strokes" in order to produce a generated sketch with maximal CLIP-similarity to a given input image. These methods perform a per-image optimization to generate a plausible sketch, rather than a global batched operation across many images, limiting their scalability. Additionally, they are fundamentally more concerned with producing high-quality, aesthetically pleasing sketches which capture a lot of extraneous details. CLIPasso and CLIPascene produce sketches with many overlapping curves, which capture details about the object surface texture and appearance that are not relevant to performing the required robot tasks. During evaluation, the many overlapping curves also require more effort by a human operator to draw.
 
       <p class="content has-text-centered">
        <img src="assets/image2sketch.png" class="interpolation-image" style="width: 100%; height: auto;"/>
       </p>
 
-    We, on the other hand, care about producing a minimal but reasonable-quality sketch. The second technique we explore is trying the pre-trained <a href="https://mtli.github.io/sketch/">Photosketching GAN</a> on internet data of paired images and sketches. However, this model output does not capture object details well, likely due to not having been trained on robot observations, and contains irrelevant sketch details. Finally, by finetuning this PhotoSketching GAN on our own data, the outputs are much closer to real, hand-drawn human sketches that capture salient object details as minimally as possible.
+    We, on the other hand, care about producing a minimal but reasonable-quality sketch. The second technique we explore is trying the pre-trained <a href="https://mtli.github.io/sketch/">PhotoSketching GAN</a> on internet data of paired images and sketches. However, this model output does not capture object details well, likely due to not having been trained on robot observations, and contains irrelevant sketch details. The vanilla PhotoSketching GAN produces sketches which do not preserve object outlines with high videlity, which makes it hard to visually distinguish between different objects (the sketch of the green chip bag and the white bowl look very similar). Finally, by finetuning this PhotoSketching GAN on our own data, the outputs are much closer to real, hand-drawn human sketches that capture salient object details as minimally as possible.
       </p>
     </div>
   </div>
@@ -555,7 +525,7 @@
     <div class="rows">
       <h2 class="title is-3">Evaluation Metric Visualizations</h2>
       <p class="content has-text-justified">
-      In this work, we quantify the spatial precision of policies based on the pixelwise distance between achieved object positions and their desired placements in visual goals. In particular, we manually annotate the most aligned frame from a rollout along with a manually labeled object keypoint for the target object in the achieved vs. goal images, and compute RMSE on this. The reason for manual keypoint annotation is to prevent conflating object detection errors with policy imprecision. Here, we visualize the manual keypoint annotations for 4 separate RT-Sketch trials along with the associated RMSE. 
+      In this work, we quantify the spatial precision of policies based on the pixelwise distance between achieved object positions and their desired placements in visual goals. In particular, we manually annotate the most aligned frame from a rollout along with a manually labeled object keypoint for the target object in the achieved vs. goal images, and compute RMSE on this. To determine the most aligned frame, we use an annotation interface in which a human evaluator watches the rollout back and pauses at the timestamp in which the robot achieves alignment, as determined by the evaluator, or the end frame if alignment is not achieved. On this frame, a human evaluator can provide a 2D click to specify the object centroid. While we could have used an object detector to obtain the object keypoints, we manually annotate the keypoints to prevent conflating object detection errors with policy imprecision. Here, we visualize the manual keypoint annotations for 4 separate RT-Sketch trials along with the associated RMSE. 
       </p>
       <p class="content has-text-justified">
        <img src="assets/rmse_visualization.png" class="interpolation-image" style="width: 100%; height: auto;"/>
@@ -571,6 +541,8 @@
       <h3 class="title is-4">Excessive Retrying: RT-Goal Image</h3>
       <p class="content has-text-justified">
       One frequent failure mode we observe with RT Goal Image is the tendency of this policy to exhibit excessive retrying behavior. We hypothesize that the policy over-attends to pixel-level differences, and as a result repeatedly attempts to manipulate objects that are already reasonably aligned. This failure to terminate can introduce a risk of toppling objects or misaligning the scene, as visualized below. RT-Sketch and RT-1 are far less susceptible, as they appear to learn notions of alignment and termination that are not hypersensitive to pixelwise differences.
+
+     Below, we provide visualizations of policy behavior during evaluation for RT-Goal Image to illustrate the excessive retrying behavior of the trained policy.
       </p>
         <div class="rows is-centered">
           <div class="columns is-centered has-text-centered">
