@@ -91,7 +91,7 @@
                 </a>
               </span>
               <span class="link-block">
-                <a target="_blank" href="assets/rt_sketch.pdf"
+                <a target="_blank" href="assets/rebuttal.pdf"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -564,6 +564,40 @@
   </div>
 </section>
 
+<section class="section" id="failure">
+  <div class="container is-max-widescreen">
+
+    <div class="rows">
+      <h3 class="title is-4">Excessive Retrying: RT-Goal Image</h3>
+      <p class="content has-text-justified">
+      One frequent failure mode we observe with RT Goal Image is the tendency of this policy to exhibit excessive retrying behavior. We hypothesize that the policy over-attends to pixel-level differences, and as a result repeatedly attempts to manipulate objects that are already reasonably aligned. This failure to terminate can introduce a risk of toppling objects or misaligning the scene, as visualized below. RT-Sketch and RT-1 are far less susceptible, as they appear to learn notions of alignment and termination that are not hypersensitive to pixelwise differences.
+      </p>
+        <div class="rows is-centered">
+          <div class="columns is-centered has-text-centered">
+            <video id="freehand1" autoplay muted loop height="50%" width="50%">
+              <source src="assets/excessive_retry/00000_spatial.mp4"
+                      type="video/mp4">
+            </video>
+            <video id="freehand1" autoplay muted loop height="50%" width="50%">
+              <source src="assets/excessive_retry/00002_spatial.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+        <div class="rows is-centered">
+          <div class="columns is-centered has-text-centered">
+            <video id="freehand1" autoplay muted loop height="50%" width="50%">
+              <source src="assets/excessive_retry/00013_spatial.mp4"
+                      type="video/mp4">
+            </video>
+            <video id="freehand1" autoplay muted loop height="50%" width="50%">
+              <source src="assets/excessive_retry/00014_spatial.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+    </div>
+  </div>
+</section>
+
 <section class="section" style="background-color:#F0F0F0; border-radius: 10px 10px 10px 10px;" id="why_sketches">
   <div class="container is-max-widescreen" >
     <div class="rows">
@@ -597,6 +631,8 @@
     </div>
   </div>
 </section>
+
+
 
 
 
