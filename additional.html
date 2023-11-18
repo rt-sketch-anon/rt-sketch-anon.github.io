@@ -80,6 +80,7 @@
           <h1 class="title is-1 publication-title">RT-Sketch: Goal-Conditioned Imitation<br>Learning from Hand-Drawn Sketches</h1>
           <h3 class="title is-3 publication-title"><font color="#38CE38">Additional Results</font></h3>
 
+
           <div class="column has-text-centered">
             <div class="publication-links">
               <!-- PDF Link. -->
@@ -87,6 +88,15 @@
                 <a target="_self" href="./index.html"
                    class="external-link button is-normal is-rounded is-dark">
                   <span>Main Website</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a target="_blank" href="assets/rt_sketch.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Revised Paper</span>
                 </a>
               </span>
             </div>
@@ -132,13 +142,43 @@
                       type="video/mp4">
             </video>
           </div>
+          <div class="columns is-centered has-text-centered">
+            <div class="column"><p>"place the pepsi can upright"</p></div>
+            <div class="column"><p></p></div>
+            <div class="column"><p>"place the pepsi can upright"</p></div>
+          </div>
+        <div class="rows is-centered">
+          <div class="columns is-centered has-text-centered">
+            <div class="column"><p>Wrong placement</p></div>
+            <div class="column"><p>Correct placement</p></div>
+            <div class="column"><p>Correct placement</p></div>
+          </div>
+          <div class="columns is-centered has-text-centered">
+            <video id="Language" autoplay muted loop height="33%" width="33%">
+              <source src="assets/lang_pick_failure.mp4"
+                      type="video/mp4">
+            </video>
+            <video id="Language" autoplay muted loop height="33%" width="33%">
+              <source src="assets/sketch_pick.mp4"
+                      type="video/mp4">
+            </video>
+            <video id="Language+Sketch" autoplay muted loop height="33%" width="33%">
+              <source src="assets/sketch_lang_pick.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+          <div class="columns is-centered has-text-centered">
+            <div class="column"><p>"place the orange on the counter"</p></div>
+            <div class="column"><p></p></div>
+            <div class="column"><p>"place the orange on the counter"</p></div>
+          </div>
     </div>
     <br>
     <div class="rows">
       <p class="content has-text-justified">
       In the future, we are excited by the prospect of multimodal goal specification to help resolve ambiguity from a single modality alone. We train a sketch-and-language conditioned model which uses FiLM along with EfficientNet layers to tokenize both visual input and language at the input.
 
-    Here, we see that while language alone (i.e. "place the can upright") can be ambiguous in terms of spatial placement, and a sketch alone does not encourage reorientation, the joint policy is better able to address the limitations of either modality alone. We further validate this in a human assessment of perceived semantic and spatial Likert ratings evaluated across 12 individuals.
+    Here, we see that while language alone (i.e. "place the can upright") can be ambiguous in terms of spatial placement, and a sketch alone does not encourage reorientation, the joint policy is better able to address the limitations of either modality alone. Similarly, for the Pick Drawer skill, the sketch-conditioned and sketch-and-language-conditioned policies are more precisely able to place the orange on the counter as desired.
       </p>
     </div>
   </div>
@@ -154,7 +194,7 @@
       <h2 class="title is-3">Robustness to Sketches Drawn by Different People</h2>
 
       <p class="content has-text-justified">
-      We evaluate whether RT-Sketch can generalizes to sketches drawn by different individuals and handle stylistic variations via 22 human evaluators who provide Likert ratings. Across 30 sketches drawn by 6 different individuals using tracing, RT-Sketch achieves high spatial alignment without a significant dropoff in performance between individuals, or compared to our original sketches used in evaluation. Below, we visualize the same 5 scenes drawn by each person, and show RT-Sketch's similar performance across trials.
+      We evaluate whether RT-Sketch can generalizes to sketches drawn by different individuals and handle stylistic variations via 22 human evaluators who provide Likert ratings. Across 30 sketches drawn by 6 different individuals using line sketching (tracing), RT-Sketch achieves high spatial alignment without a significant dropoff in performance between individuals, or compared to our original sketches used in evaluation. We provide the sketches drawn by the 6 different individuals and the corresponding robot execution videos below.
       </p>
       <p class="content has-text-centered">
        <img src="assets/other_user_sketches.png" class="interpolation-image" style="width: 60%; height: auto;"/>
@@ -168,7 +208,7 @@
     <div class="container is-fullhd">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h3 class="title is-5">User 1</h3>
+          <h3 class="title is-5">Individual 1</h3>
         </div>
       </div>
     </div>
@@ -219,7 +259,7 @@
     <div class="container is-fullhd">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h3 class="title is-5">User 2</h3>
+          <h3 class="title is-5">Individual 2</h3>
         </div>
       </div>
     </div>
@@ -267,7 +307,7 @@
     <div class="container is-fullhd">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h3 class="title is-5">User 3</h3>
+          <h3 class="title is-5">Individual 3</h3>
         </div>
       </div>
     </div>
@@ -315,7 +355,7 @@
     <div class="container is-fullhd">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h3 class="title is-5">User 4</h3>
+          <h3 class="title is-5">Individual 4</h3>
         </div>
       </div>
     </div>
@@ -363,7 +403,7 @@
     <div class="container is-fullhd">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h3 class="title is-5">User 5</h3>
+          <h3 class="title is-5">Individual 5</h3>
         </div>
       </div>
     </div>
@@ -411,7 +451,7 @@
     <div class="container is-fullhd">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h3 class="title is-5">User 6</h3>
+          <h3 class="title is-5">Individual 6</h3>
         </div>
       </div>
     </div>
