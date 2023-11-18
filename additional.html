@@ -149,7 +149,7 @@
           </div>
         <div class="rows is-centered">
           <div class="columns is-centered has-text-centered">
-            <div class="column"><p>Wrong placement</p></div>
+            <div class="column"><p>Wrong placement location</p></div>
             <div class="column"><p>Correct placement</p></div>
             <div class="column"><p>Correct placement</p></div>
           </div>
@@ -176,7 +176,7 @@
     <br>
     <div class="rows">
       <p class="content has-text-justified">
-      In the future, we are excited by the prospect of multimodal goal specification to help resolve ambiguity from a single modality alone. We train a sketch-and-language conditioned model which uses FiLM along with EfficientNet layers to tokenize both visual input and language at the input.
+      We are excited by the prospect of multimodal goal specification to help resolve ambiguity from a single modality alone, and provide experiments to demonstrate that sketch-and-language conditioning can be favorable to either modality alone. We train a sketch-and-language conditioned model which uses FiLM along with EfficientNet layers to tokenize both visual input and language at the input.
 
     Here, we see that while language alone (i.e. "place the can upright") can be ambiguous in terms of spatial placement, and a sketch alone does not encourage reorientation, the joint policy is better able to address the limitations of either modality alone. Similarly, for the Pick Drawer skill, the sketch-conditioned and sketch-and-language-conditioned policies are more precisely able to place the orange on the counter as desired.
       </p>
@@ -194,7 +194,7 @@
       <h2 class="title is-3">Robustness to Sketches Drawn by Different People</h2>
 
       <p class="content has-text-justified">
-      We evaluate whether RT-Sketch can generalizes to sketches drawn by different individuals and handle stylistic variations via 22 human evaluators who provide Likert ratings. Across 30 sketches drawn by 6 different individuals using line sketching (tracing), RT-Sketch achieves high spatial alignment without a significant dropoff in performance between individuals, or compared to our original sketches used in evaluation. We provide the sketches drawn by the 6 different individuals and the corresponding robot execution videos below.
+      We evaluate whether RT-Sketch can generalize to sketches drawn by different individuals and handle stylistic variations via 22 human evaluators who provide Likert ratings. Across 30 sketches drawn by 6 different individuals using line sketching (tracing), RT-Sketch achieves high spatial alignment without a significant dropoff in performance between individuals, or compared to our original sketches used in evaluation. We provide the sketches drawn by the 6 different individuals and the corresponding robot execution videos below.
       </p>
       <p class="content has-text-centered">
        <img src="assets/other_user_sketches.png" class="interpolation-image" style="width: 60%; height: auto;"/>
