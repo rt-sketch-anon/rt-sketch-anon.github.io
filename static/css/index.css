@@ -217,6 +217,12 @@ hr {
   animation: bounce 1s infinite;
 }
 
+.custom-paper {
+  background-color: lightgreen; /* Change this to your desired color */
+  border-color: darkgreen; /* Change this to match the background color */
+  color: green; /* Change this to the desired text color */
+}
+
 @keyframes bounce {
   0%, 100% {
     transform: translateY(0);
