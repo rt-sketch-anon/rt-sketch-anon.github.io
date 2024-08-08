@@ -6,7 +6,7 @@
         content="RT-Sketch: Goal-Conditioned Imitation Learning from Hand-Drawn Sketches">
   <meta name="keywords" content="Robotic Manipulation">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>RT-Sketch: Additional Results</title>
+  <title>RT-Sketch: Supplementary Material</title>
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-FV4ZJ9PVSV"></script>  
   <script>
@@ -78,7 +78,7 @@
       <div class="columns is-centered">
         <div class="column has-text-centered">
           <h1 class="title is-1 publication-title">RT-Sketch: Goal-Conditioned Imitation<br>Learning from Hand-Drawn Sketches</h1>
-          <h3 class="title is-3 publication-title"><font color="#38CE38">Additional Results</font></h3>
+          <h3 class="title is-3 publication-title"><font color="#38CE38">Supplementary Material</font></h3>
 
 
           <div class="column has-text-centered">
@@ -102,12 +102,6 @@
 
 <section class="section" id="multimodal">
   <div class="container is-max-widescreen">
-    <div class="rows">
-      <h2 class="title is-3">Test</h2>
-       <br>
-    </div>
-
-
     <div class="rows">
       <h2 class="title is-3">Towards Multimodal Goal Specification</h2>
        <br>
@@ -500,7 +494,7 @@
       <h2 class="title is-3">Comparison to Alternative Image-to-Sketch Techniques</h2>
       <p class="content has-text-justified">
       In this section, we highlight various image-to-sketch generation techniques we experimented with before pursuing our GAN-based approach.
-    <br><br> Recently, two recent works, <a href="https://clipasso.github.io/clipasso/">CLIPasso</a> and <a href="https://clipascene.github.io/CLIPascene/">CLIPascene</a> by Vinker et. al explore methods for automatically generating a sketch from an image. These works pose sketch generation as inferring the parameters of  Bezier curves representing "strokes" in order to produce a generated sketch with maximal CLIP-similarity to a given input image. These methods perform a per-image optimization to generate a plausible sketch, rather than a global batched operation across many images, limiting their scalability. Additionally, they are fundamentally more concerned with producing high-quality, aesthetically pleasing sketches which capture a lot of extraneous details. CLIPasso and CLIPascene produce sketches with many overlapping curves, which capture details about the object surface texture and appearance that are not relevant to performing the required robot tasks. During evaluation, the many overlapping curves also require more effort by a human operator to draw.
+    <br><br> Recently, two recent works, <a href="https://clipasso.github.io/clipasso/">CLIPasso</a> and <a href="https://clipascene.github.io/CLIPascene/">CLIPascene</a> by Vinker et. al explore methods for automatically generating a sketch from an image. These works pose sketch generation as inferring the parameters of  Bezier curves representing "strokes" in order to produce a generated sketch with maximal CLIP-similarity to a given input image. These methods perform a per-image optimization to generate a plausible sketch, rather than a global batched operation across many images, limiting their scalability. ly, they are fundamentally more concerned with producing high-quality, aesthetically pleasing sketches which capture a lot of extraneous details. CLIPasso and CLIPascene produce sketches with many overlapping curves, which capture details about the object surface texture and appearance that are not relevant to performing the required robot tasks. During evaluation, the many overlapping curves also require more effort by a human operator to draw.
 
       <p class="content has-text-centered">
        <img src="assets/image2sketch.png" class="interpolation-image" style="width: 100%; height: auto;"/>

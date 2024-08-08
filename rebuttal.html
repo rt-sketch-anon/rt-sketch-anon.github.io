@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="RT-Sketch: Goal-Conditioned Imitation Learning from Hand-Drawn Sketches">
+  <meta name="keywords" content="Robotic Manipulation">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RT-Sketch: Supplementary Material</title>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FV4ZJ9PVSV"></script>  
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-FV4ZJ9PVSV');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-fullhd">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Rebuttal Experiments</h1>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a target="_self" href="./index.html"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span>Return to Main Website</span>
+                </a>
+              </span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<hr class="rounded">
+
+<section class="section" id="multimodal">
+  <div class="container is-max-widescreen">
+
+    <div class="rows">
+      <h2 class="title is-3"><font color="#38CE38">Overview of Updates</font></h2>
+      Since submission, we provide <strong>new real-world robot evaluations</strong> that demonstrate RT-Sketch's compatibility with:
+      </h2>
+    <div class="box-container">
+      <div class="box">
+        <h3 class="title is-5"><i class="fas fa-star pow-icon"></i>New Embodiments</h3>
+        <hr style="border-color: black;">
+        <p>We deploy RT-Sketch on a <strong>Franka Panda robot</strong>, demonstrating its compatibility with various robot embodiments.</p>
+      </div>
+      <div class="box">
+        <h3 class="title is-5"><i class="fas fa-star pow-icon"></i>New IL Backbones</h3>
+        <hr style="border-color: black;">
+        <p>RT-Sketch is compatible with any IL backbone, and we demonstrate its flexibility by implementing a version that uses <strong>Diffusion Policy</strong> instead of the original Transformer architecture.</p>
+
+      </div>
+      <div class="box">
+        <h3 class="title is-5"><i class="fas fa-star pow-icon"></i>New Tasks</h3>
+        <hr style="border-color: black;">
+        <p>We demonstrate 2 tasks on the Panda:</p>
+        <br>
+        <p><strong>(1) setting the table</strong>, w/ different utensil/plate arrangements</p>
+        <p><strong>(2) opening/closing cabinets</strong></p>
+
+      </div>
+      <div class="box">
+        <h3 class="title is-5"><i class="fas fa-star pow-icon"></i>New Sketch Types</h3>
+        <hr style="border-color: black;">
+        <p>For the cabinet task, we demonstrate that the policy can learn to open/close based only on <strong>quick-to-draw arrows</strong> rather sketching the entire scene.</p>
+      </div>
+    </div>
+<br>
+      <h3 class="title is-4">Implementation Details</h3>
+    <p>For the above experiments, we use a Franka Panda robot with a Robotiq gripper. For each task, we collect on the order of 50-60 demonstrations consisting of delta actions (from a Spacemouse) and observations from two RealSense cameras (wrist-mounted + table-mounted). We then manually sketch the goals (less than 15min. per task). We implement RT-Sketch with a goal-conditioned Diffusion Policy architecture, which uses ResNets to separately encode the agent image, wrist image, wrist depth image, and goal sketch and concatenate the embeddings as input to the noise prediction network. Training takes ~3 hours per task on a single A5000 GPU, and we deploy the resulting policy onto the robot using DDIM as the denoiser and a Polymetis controller running at 10Hz.</p>
+    </div>
+
+
+<hr>
+    <div class="rows">
+      <h2 class="title is-3"><font color="#38CE38">Results</font></h2>
+      <h3 class="title is-4 underline" >Task 1: Table Setting</h3>
+     <p>We train RT-Sketch to perform table setting from 60 demonstrations</p>.
+<br>
+      <h4 class="title is-5">Sketch Variations Considered</h4>
+      <img src="assets/table_setting/sketches.gif" alt="GIF" style="border: 2px solid black; padding: 10px; width: 450px; height: auto;">
+     <br>
+     <br>
+
+      <h4 class="title is-5"><font color="green">Successful Rollouts</font></h4>
+     <p>Sketches can easily capture different desired arrangements of utensils, and the <br>policy is capable of setting the table accordingly in <strong><font color='green'>10/15 trials</font></strong>:</p>
+     <br>
+<div class="gif-row">
+        <div class="gif-container">
+            <img src="assets/table_setting/successes/1.gif" alt="Description of GIF 1">
+        </div>
+        <div class="gif-container">
+            <img src="assets/table_setting/successes/2.gif" alt="Description of GIF 1">
+        </div>
+    </div>
+     <br>
+    <div class="gif-row">
+        <div class="gif-container">
+            <img src="assets/table_setting/successes/3.gif" alt="Description of GIF 1">
+        </div>
+    </div>
+     <br>
+
+      <h4 class="title is-5"><font color="#4886d9">Robustness to Distractors</font></h4>
+     <p>Sketches inherently help the policy attend to task-relevant objects, such that the policy is able to complete the task even when things are moving around (people, spills, etc.) or distractor objects are present (napkins, etc.).</p>
+<br>
+<div class="gif-row">
+        <div class="gif-container">
+            <img src="assets/table_setting/distractors/1.gif" alt="Description of GIF 1">
+        </div>
+        <div class="gif-container">
+            <img src="assets/table_setting/distractors/2.gif" alt="Description of GIF 1">
+        </div>
+    </div>
+     <br>
+    <div class="gif-row">
+        <div class="gif-container">
+            <img src="assets/table_setting/distractors/3.gif" alt="Description of GIF 1">
+        </div>
+    </div>
+     <br>
+     <br>
+
+
+      <h4 class="title is-5"><font color="#a31f35">Failures</font></h4>
+     <p>Occasionally, the policy struggles with imprecision which can lead to failed grasps, but typically still makes partial task progress:</p>
+     <br>
+<div class="gif-row">
+        <div class="gif-container">
+            <img src="assets/table_setting/failures/1.gif" alt="Description of GIF 1">
+        </div>
+        <div class="gif-container">
+            <img src="assets/table_setting/failures/2.gif" alt="Description of GIF 1">
+        </div>
+    </div>
+     <br>
+
+
+<hr>
+    <div class="rows">
+      <h3 class="title is-4 underline" >Task 2: Drawer Opening and Closing</h3>
+     <p>We train RT-Sketch to perform drawer opening and closing from 50 demonstrations, but specifically we consider sketches which are <strong>arrows</strong> drawn over the current image rather than sketches of the entire scene. Here, arrows can represent which drawer (top or bottom) should be opened or closed.</p>. 
+<br>
+      <h4 class="title is-5"><font color="green">Successful Rollouts</font></h4>
+     <p>We see that even from extremely minimal goals (less than <strong>5 seconds</strong> to specify),<br>the policy is able to interpret and act upon the intended goal.</p>
+     <br>
+<div class="gif-row">
+        <div class="gif-container">
+            <img src="assets/cabinet/successes/4.gif" alt="Description of GIF 1">
+        </div>
+        <div class="gif-container">
+            <img src="assets/cabinet/successes/2.gif" alt="Description of GIF 1">
+        </div>
+    </div>
+<div class="gif-row">
+        <div class="gif-container">
+            <img src="assets/cabinet/successes/1.gif" alt="Description of GIF 1">
+        </div>
+        <div class="gif-container">
+            <img src="assets/cabinet/successes/3.gif" alt="Description of GIF 1">
+        </div>
+    </div>
+     <br>
+
+      <h4 class="title is-5"><font color="green">Failures</font></h4>
+     <p>Of course, the policy is not without failures and a typical failure mode is improperly grasping the cabinet handle:</p>
+<br>
+<div class="gif-row">
+        <div class="gif-container">
+            <img src="assets/cabinet/failures/1.gif" alt="Description of GIF 1">
+        </div>
+    </div>
+    </div>
+  </div>
+
+<hr>
+    <div class="rows">
+      <h2 class="title is-3"><font color="#38CE38">Limitations</font></h2>
+     <p>We acknowledge that extremely minimal sketches remains a challenging problem, and we hope to further explore this direction in future work. Ongoing advances in image-to-sketch conversion and more drastic data augmentations can likely help to address this class of sketches. The above policies also generalize only within a relatively small range of the workspace, so we hope to improve the sample efficiency and generalization capabilities of these models in the future.</p>
+</section>
+    </div>
+
+</body>
+</html>
